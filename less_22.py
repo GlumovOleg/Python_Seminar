@@ -18,12 +18,12 @@ exit()
    
 list = ['a , b, c', 'd , r ,g', 'w, y, i']
 
-n = 'd'
+n = 'f'
 a = False
 
 for i in range(len(list)):
     for j in list[i]:
         if j == str(n):
-            f = True
+           a = True
             
-print(f)
+print(a)
