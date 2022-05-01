@@ -2,12 +2,11 @@
 # Позиции хранятся в файле file.txt в одной строке одно число
 
 
-
 dict = []
 n = int(input('ВВедите переменную N: '))
 a = 1
 
-for i in range(-n , n + 1):
+for i in range(-n, n + 1):
     dict.append(i)
 
 data = open('file.txt', 'r')
