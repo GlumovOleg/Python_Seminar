@@ -4,25 +4,31 @@ import random
 
 # Игрок против бота
 
-list = ("Камень", "Ножницы", "Бумага")
-slovo = input(f'Введите один из вариантов {list}: ')
+while True:
 
-player = slovo
-print(f'Игрок: {player}')
-bot = random.choice(list)
-print(f'Бот: {bot}')
+    list = ("Камень", "Ножницы", "Бумага")
+    slovo = input(f'Введите один из вариантов {list}: ')
 
-if (player == 'Ножницы' and bot == 'Камень') or \
-    (player == 'Бумага' and bot == 'Ножницы') or \
-    (player == 'Камень' and bot == 'Бумага'):
-    print('Игрок проиграл')
+    player = slovo
+    print(f'Игрок: {player}')
+    bot = random.choice(list)
+    print(f'Бот: {bot}')
+
+    if (player == 'Ножницы' and bot == 'Камень') or \
+        (player == 'Бумага' and bot == 'Ножницы') or \
+        (player == 'Камень' and bot == 'Бумага'):
+        print('Игрок проиграл')
+        
+    elif player == bot:
+        print('Ничья')
+
+    else:
+        print('\nИгрок победил')
     
-elif player == bot:
-    print('Ничья')
-
-else:
-    print('Игрок победил')
-    
+    play_again = ''
+    play_again = input('\nСыграем ещё? (да/нет):\n')
+    if play_again != 'да':
+        break
 
 exit()
 # Игрок против игрока
