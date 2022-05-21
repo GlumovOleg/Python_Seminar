@@ -2,8 +2,12 @@
 
 import random
 from time import sleep
+import os
+clear = lambda: os.system('cls')
+clear()
 
 # Игрок против бота
+
 list = 'камень', 'ножницы', 'бумага'
 p = int(input('Введите количество попыток: '))
 i = 1
@@ -13,22 +17,24 @@ count_none = 0
 data = []
 
 while i <= p:
-
+    s = 0
     slovo = input(f'Введите один из вариантов {list}: ')
     player = slovo.lower()
+    
+    if slovo not in list:
+        print('Не верный вариант')
+        break
+
     bot = ''
     data.append(player)
     # print(data)
 
-    if player not in list:
-        print('Не верный вариант')
-        break
 
     print(f'Игрок: {player}')
 
     if i >= 2:
-        # print('Бот подключает режим бога...:DDD')
-        # sleep(1)
+        print('Бот подключает режим бога...:DDD')
+        sleep(1)
         for j in data:
             if data[-2] == 'камень':
                 bot = 'бумага'
@@ -76,18 +82,20 @@ while i <= p:
         elif count_player < count_bot:
             print('Увы и ах... машины скоро нас пороботят...')
 
-    if i >= p:
+    if i == p:
         print(f'\nПопытки исчерпаны {i} из {p}\n')
         result()
         break
 
-    play_again = str(input('\nЕщё попытка? (да/нет): '))
+    play_again = str(input('\nПродолжить? (да/нет): '))
 
     if play_again != 'да':
         print(f'\nПройдено {i} попыток из {p}\n')
         result()
         break
     if play_again == 'да':
+        clear = lambda: os.system('cls')
+        clear()
         i += 1
 
 exit()
